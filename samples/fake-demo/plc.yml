@@ -1,0 +1,9 @@
+version: 1
+projects:
+  - id: linie-1/plc
+    adapter: fake
+    path: linie-1/plc
+    fake:
+      baseArchive: base/Linie1.zapfake
+      sources: src/plc
+      scenario: ok          # ok, compile-error, rule-violation, test-failure, license-missing, hang, crash, no-response

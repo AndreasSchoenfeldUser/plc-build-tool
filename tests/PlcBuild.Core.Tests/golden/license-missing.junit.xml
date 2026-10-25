@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="plc-build linie-1/plc" tests="2" failures="0" errors="2" skipped="0" time="8.150">
+  <testsuite name="linie-1/plc.doctor" tests="1" failures="0" errors="1" skipped="0" time="0.050">
+    <testcase classname="linie-1/plc.doctor" name="doctor linie-1/plc" time="0.050">
+      <error message="Lizenz fehlt">[LICENSE_MISSING] Keine gültige Lizenz für Fake Engineering Professional gefunden.
+Behebung: Lizenz im Automation License Manager auf diesem Agenten bereitstellen.</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="linie-1/plc.compile" tests="1" failures="0" errors="1" skipped="0" time="8.100">
+    <testcase classname="linie-1/plc.compile" name="compile linie-1/plc" time="8.100">
+      <error message="Lizenz fehlt">[LICENSE_MISSING] Keine gültige Lizenz für Fake Engineering Professional gefunden.
+Behebung: Lizenz im Automation License Manager auf diesem Agenten bereitstellen.</error>
+    </testcase>
+  </testsuite>
+</testsuites>

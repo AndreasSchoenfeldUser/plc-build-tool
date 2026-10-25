@@ -1,0 +1,8 @@
+* text=auto
+# Golden files and samples are compared byte-wise and hashed into the manifest.
+tests/**/golden/* text eol=lf
+samples/**/src/** text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=crlf
+# TIA archives via Git LFS
+*.zap21 filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="plc-build linie-1/plc" tests="4" failures="3" errors="0" skipped="0" time="10.400">
+  <testsuite name="linie-1/plc.compile" tests="1" failures="0" errors="0" skipped="0" time="8.100">
+    <testcase classname="linie-1/plc.compile" name="compile linie-1/plc" time="8.100" />
+    <system-out>warning: PLC_1/Programmbausteine/Main: Variable „#tmpZaehler“ wird nicht verwendet.</system-out>
+  </testsuite>
+  <testsuite name="linie-1/plc.analyze" tests="3" failures="3" errors="0" skipped="0" time="2.300">
+    <testcase classname="linie-1/plc.analyze" name="SG-DOC-02 PLC_1/Programmbausteine/Greifer/FB_Greifer" time="0.000">
+      <failure message="Baustein hat keinen Kommentar.">error: [SG-DOC-02] PLC_1/Programmbausteine/Greifer/FB_Greifer: Baustein hat keinen Kommentar.</failure>
+    </testcase>
+    <testcase classname="linie-1/plc.analyze" name="SG-NAMING-01 PLC_1/Programmbausteine/Foerderband/FB_Foerderband" time="0.000">
+      <failure message="Bausteinname muss mit Präfix „FB_“ und Großbuchstaben beginnen.">error: [SG-NAMING-01] PLC_1/Programmbausteine/Foerderband/FB_Foerderband: Bausteinname muss mit Präfix „FB_“ und Großbuchstaben beginnen.</failure>
+    </testcase>
+    <testcase classname="linie-1/plc.analyze" name="SG-NAMING-01 PLC_1/Programmbausteine/Greifer/FB_Greifer" time="0.000">
+      <failure message="Bausteinname muss mit Präfix „FB_“ und Großbuchstaben beginnen.">error: [SG-NAMING-01] PLC_1/Programmbausteine/Greifer/FB_Greifer: Bausteinname muss mit Präfix „FB_“ und Großbuchstaben beginnen.</failure>
+    </testcase>
+    <system-out>warning: [SG-LEGACY-07] PLC_1/Programmbausteine/Main: Magische Zahl 42 im Code.</system-out>
+  </testsuite>
+</testsuites>

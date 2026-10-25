@@ -1,0 +1,59 @@
+{
+  "manifestVersion": 1,
+  "generator": "plc-build 0.0.0-test",
+  "createdAt": "2026-10-25T08:00:00+00:00",
+  "commit": "0123456789abcdef0123456789abcdef01234567",
+  "project": {
+    "id": "linie-1/plc",
+    "adapter": "fake",
+    "path": "linie-1/plc"
+  },
+  "outcome": "failed",
+  "tool": {
+    "name": "Fake Engineering",
+    "version": "1.0",
+    "components": {
+      "Fake Compiler": "1.0",
+      "Fake Test": "1.0"
+    }
+  },
+  "inputs": [
+    {
+      "name": "baseArchive",
+      "path": "base/Linie1.zapfake",
+      "kind": "file",
+      "files": null,
+      "sha256": "901c98a88b161b8046d9a9b4ee9e1f2e5377d794ae63519406bf08421be966b7"
+    },
+    {
+      "name": "sources",
+      "path": "src/plc",
+      "kind": "directory",
+      "files": 2,
+      "sha256": "70331307ba29035c62058c50d2b0e8eabfdd14adc9ac4ea1706260f3e7dd6571"
+    }
+  ],
+  "steps": [
+    {
+      "step": "restore",
+      "outcome": "ok",
+      "summary": "Basisprojekt wiederhergestellt",
+      "durationMs": 4200,
+      "errors": 0,
+      "warnings": 0,
+      "testsTotal": null,
+      "testsFailed": null
+    },
+    {
+      "step": "compile",
+      "outcome": "failed",
+      "summary": "3 Fehler, 1 Warnung",
+      "durationMs": 8100,
+      "errors": 3,
+      "warnings": 1,
+      "testsTotal": null,
+      "testsFailed": null
+    }
+  ],
+  "artifacts": []
+}

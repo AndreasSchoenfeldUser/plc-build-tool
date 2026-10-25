@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="plc-build linie-1/plc" tests="8" failures="0" errors="0" skipped="0" time="31.150">
+  <testsuite name="linie-1/plc.doctor" tests="1" failures="0" errors="0" skipped="0" time="0.050">
+    <testcase classname="linie-1/plc.doctor" name="doctor linie-1/plc" time="0.050" />
+  </testsuite>
+  <testsuite name="linie-1/plc.restore" tests="1" failures="0" errors="0" skipped="0" time="4.200">
+    <testcase classname="linie-1/plc.restore" name="restore linie-1/plc" time="4.200" />
+  </testsuite>
+  <testsuite name="linie-1/plc.import" tests="1" failures="0" errors="0" skipped="0" time="1.500">
+    <testcase classname="linie-1/plc.import" name="import linie-1/plc" time="1.500" />
+  </testsuite>
+  <testsuite name="linie-1/plc.compile" tests="1" failures="0" errors="0" skipped="0" time="8.100">
+    <testcase classname="linie-1/plc.compile" name="compile linie-1/plc" time="8.100" />
+    <system-out>warning: PLC_1/Programmbausteine/Main: Variable „#tmpZaehler“ wird nicht verwendet.</system-out>
+  </testsuite>
+  <testsuite name="linie-1/plc.analyze" tests="1" failures="0" errors="0" skipped="0" time="2.300">
+    <testcase classname="linie-1/plc.analyze" name="analyze linie-1/plc" time="2.300" />
+    <system-out>warning: [SG-LEGACY-07] PLC_1/Programmbausteine/Main: Magische Zahl 42 im Code.</system-out>
+  </testsuite>
+  <testsuite name="linie-1/plc.test" tests="2" failures="0" errors="0" skipped="0" time="12.000">
+    <testcase classname="linie-1/plc.test.FB_Foerderband" name="Test_Start_Stop" time="0.800" />
+    <testcase classname="linie-1/plc.test.FB_Greifer" name="Test_Schliessen_Timeout" time="1.200" />
+  </testsuite>
+  <testsuite name="linie-1/plc.archive" tests="1" failures="0" errors="0" skipped="0" time="3.000">
+    <testcase classname="linie-1/plc.archive" name="archive linie-1/plc" time="3.000" />
+  </testsuite>
+</testsuites>

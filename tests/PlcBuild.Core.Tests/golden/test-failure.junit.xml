@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="plc-build linie-1/plc" tests="2" failures="1" errors="0" skipped="0" time="12.000">
+  <testsuite name="linie-1/plc.test" tests="2" failures="1" errors="0" skipped="0" time="12.000">
+    <testcase classname="linie-1/plc.test.FB_Foerderband" name="Test_Start_Stop" time="0.800" />
+    <testcase classname="linie-1/plc.test.FB_Greifer" name="Test_Schliessen_Timeout" time="1.200">
+      <failure message="Erwartet TRUE, ist FALSE">Erwartet TRUE, ist FALSE
+Erwartet: TRUE
+Ist: FALSE</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

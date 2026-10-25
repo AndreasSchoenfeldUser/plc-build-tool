@@ -1,0 +1,72 @@
+// Demo pipeline for plc-build with the fake adapter (milestone M0).
+// Runs on any Jenkins agent with the .NET 10 SDK, Linux, macOS or Windows.
+// Pattern as in CLAUDE.md section 11; plc-build is built from this repository first.
+//
+// Job setup: Pipeline from SCM, this repository, script path samples/fake-demo/Jenkinsfile.
+
+def plc(String args) {
+    def dll = "${env.WORKSPACE}/src/PlcBuild.Cli/bin/Release/net10.0/plc-build.dll"
+    if (isUnix()) {
+        sh "dotnet \"${dll}\" ${args}"
+    } else {
+        bat "dotnet \"${dll}\" ${args}"
+    }
+}
+
+pipeline {
+    agent any
+    options { timeout(time: 30, unit: 'MINUTES'); disableConcurrentBuilds() }
+    parameters {
+        choice(name: 'SCENARIO',
+               choices: ['ok', 'compile-error', 'rule-violation', 'test-failure', 'license-missing', 'hang', 'crash', 'no-response'],
+               description: 'Verhalten des Fake-Adapters')
+    }
+    environment {
+        PROJEKT = 'linie-1/plc'
+        PLC_BUILD_FAKE_SCENARIO = "${params.SCENARIO}"
+        DOTNET_CLI_TELEMETRY_OPTOUT = '1'
+        DOTNET_NOLOGO = '1'
+    }
+    stages {
+        stage('plc-build bauen') {
+            steps {
+                script {
+                    if (isUnix()) { sh 'dotnet build src/PlcBuild.Cli -c Release' }
+                    else { bat 'dotnet build src/PlcBuild.Cli -c Release' }
+                }
+            }
+        }
+        stage('Umgebung') {
+            steps { dir('samples/fake-demo') { plc "doctor --project ${env.PROJEKT}" } }
+        }
+        stage('Build') {
+            steps {
+                dir('samples/fake-demo') {
+                    plc "restore --project ${env.PROJEKT} --timeout 1"
+                    plc "import  --project ${env.PROJEKT} --timeout 1"
+                    plc "compile --project ${env.PROJEKT} --timeout 1"
+                    plc "analyze --project ${env.PROJEKT} --timeout 1"
+                }
+            }
+        }
+        stage('Test') {
+            steps { dir('samples/fake-demo') { plc "test --project ${env.PROJEKT} --timeout 1" } }
+        }
+        stage('Archiv') {
+            when { anyOf { branch 'main'; not { changeRequest() } } }
+            steps { dir('samples/fake-demo') { plc "archive --project ${env.PROJEKT} --out out/Linie1_${env.BUILD_NUMBER}.zapfake" } }
+        }
+    }
+    post {
+        always {
+            dir('samples/fake-demo') {
+                plc "report --project ${env.PROJEKT} --junit out/junit --sarif out/sarif"
+                junit allowEmptyResults: true, testResults: 'out/junit/*.xml'
+                archiveArtifacts artifacts: 'out/manifest/*.json, out/sarif/*.sarif, out/.plc-build/**/*.log', allowEmptyArchive: true
+                script {
+                    try { plc 'cleanup' } catch (err) { echo "cleanup: ${err}" }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+# Build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.idea/
+TestResults/
+
+# plc-build output
+out/
+
+# TIA Portal: projects and archives only as samples
+*.ap21
+*.zap21
+!samples/**/*.zap21
+*.al21
+**/UserFiles/
+**/IM/
+**/TMP/
+**/XRef/
+
+# CODESYS user and cache files
+*.opt
+*.project.~u
+*.compileinfo
+*.precompilecache
+*.bootinfo
+*.bootinfo_guids
+
+# Licenses and secrets never belong into the repository
+*.lic
+*.alm
+.env

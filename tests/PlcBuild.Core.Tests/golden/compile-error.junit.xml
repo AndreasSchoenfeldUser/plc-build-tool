@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="plc-build linie-1/plc" tests="3" failures="2" errors="0" skipped="0" time="12.300">
+  <testsuite name="linie-1/plc.restore" tests="1" failures="0" errors="0" skipped="0" time="4.200">
+    <testcase classname="linie-1/plc.restore" name="restore linie-1/plc" time="4.200" />
+  </testsuite>
+  <testsuite name="linie-1/plc.compile" tests="2" failures="2" errors="0" skipped="0" time="8.100">
+    <testcase classname="linie-1/plc.compile" name="PLC_1/Programmbausteine/Foerderband/FB_Foerderband" time="0.000">
+      <failure message="Operand „#Freigabe“ ist nicht definiert.">error: PLC_1/Programmbausteine/Foerderband/FB_Foerderband: Operand „#Freigabe“ ist nicht definiert.
+error: PLC_1/Programmbausteine/Foerderband/FB_Foerderband: Typkonflikt: INT kann nicht nach BOOL konvertiert werden.</failure>
+    </testcase>
+    <testcase classname="linie-1/plc.compile" name="PLC_1/Programmbausteine/Greifer/FB_Greifer" time="0.000">
+      <failure message="Ungültiger Aufruf von „TON“: Parameter „PT“ fehlt.">error: PLC_1/Programmbausteine/Greifer/FB_Greifer: Ungültiger Aufruf von „TON“: Parameter „PT“ fehlt.</failure>
+    </testcase>
+    <system-out>warning: PLC_1/Programmbausteine/Main: Variable „#tmpZaehler“ wird nicht verwendet.</system-out>
+  </testsuite>
+</testsuites>

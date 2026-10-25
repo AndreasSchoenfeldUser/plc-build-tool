@@ -1,0 +1,9 @@
+{
+  "name": "fake",
+  "protocol": 1,
+  "command": "{adapterDir}/PlcBuild.Adapters.Fake",
+  "args": ["{request}"],
+  "settingsKey": "fake",
+  "manifestInputs": ["baseArchive", "sources"],
+  "secrets": {}
+}

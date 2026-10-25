@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Fake Engineering",
+          "version": "1.0",
+          "rules": [
+            {
+              "id": "compile/warning"
+            }
+          ]
+        }
+      },
+      "automationDetails": {
+        "id": "linie-1/plc/compile/"
+      },
+      "results": [
+        {
+          "ruleId": "compile/warning",
+          "level": "warning",
+          "message": {
+            "text": "Variable „#tmpZaehler“ wird nicht verwendet."
+          },
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PLC_1/Programmbausteine/Main"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "plcBuild": {
+          "project": "linie-1/plc",
+          "step": "compile",
+          "adapter": "fake",
+          "outcome": "ok",
+          "generator": "plc-build 0.0.0-test"
+        }
+      }
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Fake Engineering",
+          "version": "1.0",
+          "rules": [
+            {
+              "id": "SG-DOC-02"
+            },
+            {
+              "id": "SG-LEGACY-07"
+            },
+            {
+              "id": "SG-NAMING-01"
+            }
+          ]
+        }
+      },
+      "automationDetails": {
+        "id": "linie-1/plc/analyze/"
+      },
+      "results": [
+        {
+          "ruleId": "SG-NAMING-01",
+          "level": "error",
+          "message": {
+            "text": "Bausteinname muss mit Präfix „FB_“ und Großbuchstaben beginnen."
+          },
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PLC_1/Programmbausteine/Foerderband/FB_Foerderband"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SG-DOC-02",
+          "level": "error",
+          "message": {
+            "text": "Baustein hat keinen Kommentar."
+          },
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PLC_1/Programmbausteine/Greifer/FB_Greifer"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SG-NAMING-01",
+          "level": "error",
+          "message": {
+            "text": "Bausteinname muss mit Präfix „FB_“ und Großbuchstaben beginnen."
+          },
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PLC_1/Programmbausteine/Greifer/FB_Greifer"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SG-LEGACY-07",
+          "level": "warning",
+          "message": {
+            "text": "Magische Zahl 42 im Code."
+          },
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PLC_1/Programmbausteine/Main"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "plcBuild": {
+          "project": "linie-1/plc",
+          "step": "analyze",
+          "adapter": "fake",
+          "outcome": "failed",
+          "generator": "plc-build 0.0.0-test"
+        }
+      }
+    }
+  ]
+}
