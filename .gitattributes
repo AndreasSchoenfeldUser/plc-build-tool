@@ -6,3 +6,4 @@ samples/**/src/** text eol=lf
 *.ps1 text eol=crlf
 # TIA archives via Git LFS
 *.zap21 filter=lfs diff=lfs merge=lfs -text
+docs/gui-prototypen/**/*.png filter=lfs diff=lfs merge=lfs -text
